@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/libsm64/handlers/StaticSurfacesHandler.gd" type="Script" id=1]
+[ext_resource path="res://addons/libsm64/handlers/SurfaceObjectsHandler.gd" type="Script" id=2]
+[ext_resource path="res://mods/Fish64/SM64Handler.tres" type="Resource" id=3]
+[ext_resource path="res://addons/libsm64/mario/Mario.gd" type="Script" id=4]
+
+[node name="SM64Objects" type="Spatial"]
+
+[node name="StaticSurfacesHandler" type="Node" parent="."]
+script = ExtResource( 1 )
+sm64_handler = ExtResource( 3 )
+
+[node name="SurfaceObjectsHandler" type="Node" parent="."]
+script = ExtResource( 2 )
+sm64_handler = ExtResource( 3 )
+
+[node name="Mario" type="Spatial" parent="." groups=["Mario"]]
+script = ExtResource( 4 )
+sm64_handler = ExtResource( 3 )
+stick_left = "move_left"
+stick_right = "move_right"
+stick_up = "move_forward"
+stick_down = "move_back"
+input_a = "move_jump"
+input_b = "move_sprint"
+input_z = "move_sneak"
